@@ -68,6 +68,8 @@ vim.opt.rtp:prepend(lazypath)
 --    as they will be available in your neovim runtime.
 require('lazy').setup({
   -- NOTE: First, some plugins that don't require any configuration
+  -- Vim Games
+  'ThePrimeagen/vim-be-good',
 
   -- Git related plugins
   'tpope/vim-fugitive',
@@ -153,12 +155,13 @@ require('lazy').setup({
   },
 
   {
-    -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
+    "bluz71/vim-nightfly-colors",
+    name = "nightfly",
+    lazy = false,
     priority = 1000,
-    config = function()
-      vim.cmd.colorscheme 'onedark'
-    end,
+    config = function ()
+      vim.cmd.colorscheme "nightfly"
+    end
   },
 
   {
@@ -168,7 +171,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'onedark',
+        theme = 'nightfly',
         component_separators = '|',
         section_separators = '',
       },
@@ -217,6 +220,27 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
 
+  {
+    -- rust crates
+    'saecki/crates.nvim',
+    tag = 'stable',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = function()
+        require('crates').setup()
+    end,
+  },
+
+  {
+    'mbbill/undotree'
+  },
+
+--  {
+--    -- color scheme
+--    'morhetz/gruvbox',
+--    config = function()
+--      vim.cmd.colorscheme "gruvbox"
+--    end,
+--  }
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
@@ -236,11 +260,17 @@ require('lazy').setup({
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
 
+-- Pirro - I added this 
+vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = "undotree"})
 -- Set highlight on search
 vim.o.hlsearch = false
 
 -- Make line numbers default
 vim.wo.number = true
+
+-- Pirro - I added this 
+vim.opt.nu = true
+vim.opt.relativenumber = true
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
@@ -262,6 +292,8 @@ vim.o.smartcase = true
 
 -- Keep signcolumn on by default
 vim.wo.signcolumn = 'yes'
+vim.opt.colorcolumn = "125"
+vim.opt.scrolloff = 8
 
 -- Decrease update time
 vim.o.updatetime = 250
