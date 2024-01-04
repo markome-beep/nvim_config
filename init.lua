@@ -114,7 +114,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
+  { 'folke/which-key.nvim',  opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -159,7 +159,7 @@ require('lazy').setup({
     name = "nightfly",
     lazy = false,
     priority = 1000,
-    config = function ()
+    config = function()
       vim.cmd.colorscheme "nightfly"
     end
   },
@@ -226,7 +226,7 @@ require('lazy').setup({
     tag = 'stable',
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
-        require('crates').setup()
+      require('crates').setup()
     end,
   },
 
@@ -234,13 +234,13 @@ require('lazy').setup({
     'mbbill/undotree'
   },
 
---  {
---    -- color scheme
---    'morhetz/gruvbox',
---    config = function()
---      vim.cmd.colorscheme "gruvbox"
---    end,
---  }
+  --  {
+  --    -- color scheme
+  --    'morhetz/gruvbox',
+  --    config = function()
+  --      vim.cmd.colorscheme "gruvbox"
+  --    end,
+  --  }
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
@@ -260,15 +260,15 @@ require('lazy').setup({
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
 
--- Pirro - I added this 
-vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = "undotree"})
+-- Pirro - I added this
+vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = "undotree" })
 -- Set highlight on search
 vim.o.hlsearch = false
 
 -- Make line numbers default
 vim.wo.number = true
 
--- Pirro - I added this 
+-- Pirro - I added this
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
@@ -377,7 +377,7 @@ local function live_grep_git_root()
   local git_root = find_git_root()
   if git_root then
     require('telescope.builtin').live_grep({
-      search_dirs = {git_root},
+      search_dirs = { git_root },
     })
   end
 end
@@ -513,6 +513,7 @@ local on_attach = function(_, bufnr)
   end, '[W]orkspace [L]ist Folders')
 
   -- Create a command `:Format` local to the LSP buffer
+  nmap('<leader>ff', vim.lsp.buf.format, '[F]ormat [F]ile')
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
     vim.lsp.buf.format()
   end, { desc = 'Format current buffer with LSP' })
