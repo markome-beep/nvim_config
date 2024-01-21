@@ -262,6 +262,11 @@ require('lazy').setup({
 
 -- Pirro - I added this
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = "undotree" })
+
+-- Pirro - I added this 
+vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = "undotree"})
+vim.opt.wrap = false
+
 -- Set highlight on search
 vim.o.hlsearch = false
 
@@ -410,7 +415,7 @@ vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = 
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' },
+    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash', 'html' },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
     auto_install = false,
@@ -637,5 +642,6 @@ cmp.setup {
   },
 }
 
+vim.o.tabstop = 4
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
