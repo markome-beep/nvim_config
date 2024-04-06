@@ -1,12 +1,13 @@
+Color = "tokyonight"
 return {
   {
-    "bluz71/vim-nightfly-colors",
-    name = "nightfly",
-    lazy = false,
-    priority = 1000,
+    "folke/tokyonight.nvim",
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
-      vim.cmd.colorscheme "nightfly"
-    end
+      -- load the colorscheme here
+      vim.cmd([[colorscheme tokyonight]])
+    end,
   },
 
   {
@@ -16,7 +17,7 @@ return {
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'nightfly',
+        theme = Color,
         component_separators = '|',
         section_separators = '',
       },

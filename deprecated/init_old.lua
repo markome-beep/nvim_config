@@ -114,7 +114,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim',  opts = {} },
+  { 'folke/which-key.nvim', opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -155,13 +155,13 @@ require('lazy').setup({
   },
 
   {
-    "bluz71/vim-nightfly-colors",
-    name = "nightfly",
+    'bluz71/vim-nightfly-colors',
+    name = 'nightfly',
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme "nightfly"
-    end
+      vim.cmd.colorscheme 'nightfly'
+    end,
   },
 
   {
@@ -232,7 +232,7 @@ require('lazy').setup({
   },
 
   {
-    'mbbill/undotree'
+    'mbbill/undotree',
   },
 
   --  {
@@ -262,10 +262,10 @@ require('lazy').setup({
 -- NOTE: You can change these options as you wish!
 
 -- Pirro - I added this
-vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = "undotree" })
+vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = 'undotree' })
 
 -- Pirro - I added this
-vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = "undotree" })
+vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = 'undotree' })
 vim.opt.wrap = false
 
 -- Set highlight on search
@@ -298,7 +298,7 @@ vim.o.smartcase = true
 
 -- Keep signcolumn on by default
 vim.wo.signcolumn = 'yes'
-vim.opt.colorcolumn = "125"
+vim.opt.colorcolumn = '125'
 vim.opt.scrolloff = 8
 
 -- Decrease update time
@@ -362,17 +362,17 @@ local function find_git_root()
   local current_dir
   local cwd = vim.fn.getcwd()
   -- If the buffer is not associated with a file, return nil
-  if current_file == "" then
+  if current_file == '' then
     current_dir = cwd
   else
     -- Extract the directory from the current file's path
-    current_dir = vim.fn.fnamemodify(current_file, ":h")
+    current_dir = vim.fn.fnamemodify(current_file, ':h')
   end
 
   -- Find the Git root directory from the current file's path
-  local git_root = vim.fn.systemlist("git -C " .. vim.fn.escape(current_dir, " ") .. " rev-parse --show-toplevel")[1]
+  local git_root = vim.fn.systemlist('git -C ' .. vim.fn.escape(current_dir, ' ') .. ' rev-parse --show-toplevel')[1]
   if vim.v.shell_error ~= 0 then
-    print("Not a git repository. Searching on current working directory")
+    print 'Not a git repository. Searching on current working directory'
     return cwd
   end
   return git_root
@@ -382,9 +382,9 @@ end
 local function live_grep_git_root()
   local git_root = find_git_root()
   if git_root then
-    require('telescope.builtin').live_grep({
+    require('telescope.builtin').live_grep {
       search_dirs = { git_root },
-    })
+    }
   end
 end
 
@@ -547,7 +547,7 @@ require('mason-lspconfig').setup()
 --
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
-vim.filetype.add({ extension = { templ = "templ" } })
+vim.filetype.add { extension = { templ = 'templ' } }
 local servers = {
   -- clangd = {},
   gopls = { filetypes = { 'go' } },
@@ -608,7 +608,7 @@ cmp.setup {
     end,
   },
   completion = {
-    completeopt = 'menu,menuone,noinsert'
+    completeopt = 'menu,menuone,noinsert',
   },
   mapping = cmp.mapping.preset.insert {
     ['<C-n>'] = cmp.mapping.select_next_item(),
@@ -645,6 +645,8 @@ cmp.setup {
   },
 }
 
-vim.o.tabstop = 4
+vim.o.tabstop = 8
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

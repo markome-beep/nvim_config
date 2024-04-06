@@ -11,7 +11,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- General keymaps
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
-vim.keymap.set('n', '<leader>fe', vim.cmd.Ex, { desc = '[f]ile [e]xplorer'})
+vim.keymap.set('n', '<leader>fe', vim.cmd.Ex, { desc = '[f]ile [e]xplorer' })
 
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
@@ -28,3 +28,9 @@ vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left wind
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv'")
+vim.keymap.set('v', 'K', ":m '>-2<CR>gv=gv'")
+
+vim.keymap.set('x', '<leader>p', '"_dP')
+vim.keymap.set('n', 'Q', '<nop>')
