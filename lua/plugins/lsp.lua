@@ -138,9 +138,9 @@ return { -- LSP Configuration & Plugins
       -- clangd = {},
       gopls = {},
       templ = {},
-      -- html = { filetypes = { 'html', 'templ' } },
-      -- htmx = { filetypes = { 'html', 'templ' } },
-      -- emmet_language_server = { filetypes = { 'html', 'templ' } },
+      html = { filetypes = { 'html', 'templ' } },
+      htmx = { filetypes = { 'html', 'templ' } },
+      emmet_language_server = { filetypes = { 'html', 'templ' } },
       -- pyright = {},
       rust_analyzer = {},
       -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs

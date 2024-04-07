@@ -1,12 +1,11 @@
-Color = "tokyonight"
 return {
   {
-    "folke/tokyonight.nvim",
+    'kepano/flexoki-neovim',
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
       -- load the colorscheme here
-      vim.cmd([[colorscheme tokyonight]])
+      vim.cmd [[colorscheme flexoki-dark]]
     end,
   },
 
@@ -16,8 +15,8 @@ return {
     -- See `:help lualine.txt`
     opts = {
       options = {
-        icons_enabled = false,
-        theme = Color,
+        icons_enabled = true,
+        theme = 'jellybeans',
         component_separators = '|',
         section_separators = '',
       },
