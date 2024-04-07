@@ -17,4 +17,4 @@ vim.o.termguicolors = true
 vim.o.tabstop = 4
 vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
-vim.opt.cursorline = true
+-- vim.opt.cursorline = true
