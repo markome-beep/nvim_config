@@ -5,7 +5,7 @@ return { -- Autoformat
     {
       '<leader>ff',
       function()
-        require('conform').format { async = true, lsp_fallback = true }
+        require('conform').format { async = true, lsp_fallback = false }
       end,
       mode = '',
       desc = '[F]ormat bu[f]fer',
@@ -25,10 +25,10 @@ return { -- Autoformat
     end,
     formatters_by_ft = {
       lua = { 'stylua' },
-      templ = { 'templ fmt' },
+      templ = { 'templ' },
       go = { 'gofmt' },
       -- Conform can also run multiple formatters sequentially
-      -- python = { "isort", "black" },
+      python = { 'autopep8' },
       --
       -- You can use a sub-list to tell conform to run *until* a formatter
       -- is found.

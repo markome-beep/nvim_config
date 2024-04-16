@@ -135,11 +135,10 @@ return { -- LSP Configuration & Plugins
     --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
     vim.filetype.add { extension = { templ = 'templ' } }
     local servers = {
-      -- clangd = {},
       gopls = {},
       templ = {},
-      html = { filetypes = { 'html', 'templ' } },
-      htmx = { filetypes = { 'html', 'templ' } },
+      -- html = {},
+      -- htmx = { filetypes = { 'html', 'templ' } },
       emmet_language_server = { filetypes = { 'html', 'templ' } },
       -- pyright = {},
       rust_analyzer = {},
