@@ -1,6 +1,5 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
-require 'pmarko'
 
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -15,3 +14,5 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 require('lazy').setup 'plugins'
+
+require 'pmarko'
