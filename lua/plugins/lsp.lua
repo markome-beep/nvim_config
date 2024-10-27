@@ -133,13 +133,13 @@ return { -- LSP Configuration & Plugins
     --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
     --  - settings (table): Override the default settings passed when initializing the server.
     --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
-    vim.filetype.add { extension = { templ = 'templ' } }
+    -- vim.filetype.add { extension = { templ = 'templ' } }
     local servers = {
       gopls = {},
-      templ = {},
-      -- html = {},
+      -- templ = {},
+      html = { filetypes = { 'html', 'svelte' } },
       -- htmx = { filetypes = { 'html', 'templ' } },
-      emmet_language_server = { filetypes = { 'html', 'templ' } },
+      -- emmet_language_server = { filetypes = { 'html', 'templ' } },
       -- pyright = {},
       rust_analyzer = {},
       -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
