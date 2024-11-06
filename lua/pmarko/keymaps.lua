@@ -23,6 +23,8 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+vim.keymap.set('t', '<C-k><C-k>', '<C-\\><C-n><C-w><C-k>', { desc = 'Move up pane in terminal' })
+vim.keymap.set('n', '<leader>tt', '<C-w>s<C-w><C-j>:terminal<CR>a', { desc = 'Open terminal in new pane' })
 
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
@@ -34,4 +36,3 @@ vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
 vim.keymap.set('x', '<leader>p', '"_dP')
 vim.keymap.set('n', 'Q', '<nop>')
-vim.keymap.set('n', '<leader>tt', '<C-w>s<C-w><C-j>:terminal<CR>a')
