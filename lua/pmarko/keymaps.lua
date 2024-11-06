@@ -34,3 +34,4 @@ vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
 vim.keymap.set('x', '<leader>p', '"_dP')
 vim.keymap.set('n', 'Q', '<nop>')
+vim.keymap.set('n', '<leader>tt', '<C-w>s<C-w><C-j>:terminal<CR>a')
