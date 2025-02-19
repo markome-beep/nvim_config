@@ -39,7 +39,9 @@ local toggle_terminal = function()
   if not vim.api.nvim_win_is_valid(state.floating.win) then
     state.floating = create_floating_window { buf = state.floating.buf }
     if vim.bo[state.floating.buf].buftype ~= 'terminal' then
-      vim.cmd.terminal()
+      vim.cmd.terminal 'lazygit'
+      vim.api.nvim_buf_set_keymap(state.floating.buf, 't', '<ESC><ESC>', '<cmd>Lazygit<CR>', {})
+      vim.api.nvim_buf_set_keymap(state.floating.buf, 't', '<leader>q', '<C-\\><C-n>:bd!<CR><cmd>Lazygit<CR>', {})
     end
     vim.api.nvim_feedkeys('a', 'n', false)
   else
@@ -47,5 +49,5 @@ local toggle_terminal = function()
   end
 end
 
-vim.api.nvim_create_user_command('Floaterminal', toggle_terminal, {})
+vim.api.nvim_create_user_command('Lazygit', toggle_terminal, {})
 return {}
